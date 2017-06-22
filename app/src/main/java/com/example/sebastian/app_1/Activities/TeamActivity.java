@@ -19,12 +19,7 @@ import java.util.List;
 
 
 public class TeamActivity extends AppCompatActivity {
-
-
     ListView lv;
-
-
-
     private int team_id = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

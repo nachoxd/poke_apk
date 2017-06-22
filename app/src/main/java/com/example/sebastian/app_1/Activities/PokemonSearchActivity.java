@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.sebastian.app_1.AsyncTasks.AsyncPokemonSearch;
 import com.example.sebastian.app_1.Adapters.PokemonSearchAdapter;
@@ -83,11 +84,14 @@ public class PokemonSearchActivity extends AppCompatActivity {
                 Converter converter = new Converter();
                 int type1 = converter.StringToIntType(context,AsyncPokemonSearch.type1);
                 int type2 = converter.StringToIntType(context,AsyncPokemonSearch.type2);
+                //REVISAR ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA PORQUE NO ESTA AGREGANDO A LA BD
                 db.addPokemon(x.getText().toString(),type1,type2, AsyncPokemonSearch.type1, AsyncPokemonSearch.type2,"levitate",team_id, AsyncPokemonSearch.image);
-
+                //REVISAR ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA PORQUE NO ESTA AGREGANDO A LA BD
+                Toast.makeText(getApplicationContext(),"El poke se agrego a la bd",Toast.LENGTH_SHORT).show();
                 //INTENT AND CHANGE TO ANOTHER ACTIVITY
                 Intent intent = new Intent(PokemonSearchActivity.this,TeamActivity.class);
                 intent.putExtra("TEAM_ID",team_id);
+                //startActivity(intent);
                 setResult(RESULT_OK,intent);
                 finish();
             }

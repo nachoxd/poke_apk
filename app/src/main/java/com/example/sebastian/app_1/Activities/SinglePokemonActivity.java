@@ -30,6 +30,7 @@ public class SinglePokemonActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.single_poke_main);
+        //ELEMENTS OF SINGLE POKEMON VIEW
         icon = (ImageView) findViewById(R.id.elem_icon);
         name = (TextView) findViewById(R.id.elem_tv);
         type1 = (ImageView) findViewById(R.id.type_int_1);
@@ -43,6 +44,7 @@ public class SinglePokemonActivity extends AppCompatActivity{
         move3_type = (ImageView) findViewById(R.id.move3_type);
         move4 = (TextView) findViewById(R.id.move4);
         move4_type = (ImageView) findViewById(R.id.move4_type);
+        //FILL SPACES WITH INTENT INFO
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         if (extras!=null){
@@ -136,6 +138,21 @@ public class SinglePokemonActivity extends AppCompatActivity{
                 move3_type.setImageResource(R.drawable.electric);
                 move4.setText("Psychic");
                 move4_type.setImageResource(R.drawable.psychic);
+            }
+            else{
+                icon.setImageResource(R.drawable.ditto);
+                name.setText("Ditto");
+                type1.setImageResource(R.drawable.normal);
+                type2.setImageResource(R.drawable.nulo);
+                ability.setText("Imposter");
+                move1.setText("Transform");
+                move1_type.setImageResource(R.drawable.normal);
+                move2.setText("");
+                move2_type.setImageResource(R.drawable.nulo);
+                move3.setText("");
+                move3_type.setImageResource(R.drawable.nulo);
+                move4.setText("");
+                move4_type.setImageResource(R.drawable.nulo);
             }
         }
 
