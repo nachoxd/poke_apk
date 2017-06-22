@@ -35,7 +35,7 @@ public class TeamListActivity extends AppCompatActivity implements View.OnClickL
         //DBHelper db = new DBHelper(this);
         db.getWritableDatabase();
         //db.dropTables();
-        //db.createTables();
+        db.createTables();
         //db.addTeam("Team Kawaii");
         //db.addTeam("Team Johto");
         //db.addTeam("Team Sinnoh");
@@ -61,6 +61,7 @@ public class TeamListActivity extends AppCompatActivity implements View.OnClickL
                 intent.putExtra("TEAM_ID",selectedTeam.id);
 
                 startActivity(intent);
+                finish();
             }
         });
     }

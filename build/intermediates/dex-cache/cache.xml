@@ -3,30 +3,30 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\Sebastian\AndroidStudioProjects\APP_1\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="/Users/victor/Desktop/poke_apk/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
-        <dex dex="C:\Users\Sebastian\AndroidStudioProjects\APP_1\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_5a7a27cabeec51c36cf1bb84848f9b04b9a6920d\classes.dex" />
+        <dex dex="/Users/victor/Desktop/poke_apk/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_068c8e68de270362e76082d58d933727eeeb2561/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Sebastian\AndroidStudioProjects\APP_1\app\libs\jsoup-1.10.2.jar"
+        jar="/Users/victor/Desktop/poke_apk/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1251f48a7cfb13c938413f3ab5873eb39722ca1d">
+        <dex dex="/Users/victor/Desktop/poke_apk/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_4e053dbdfa6164c71a2625a3161d7a3693a8517a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/victor/Desktop/poke_apk/app/libs/jsoup-1.10.2.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="61f84a97f1a4f5905547b8b74afff8dc93f4cfce">
-        <dex dex="C:\Users\Sebastian\AndroidStudioProjects\APP_1\app\build\intermediates\transforms\dex\debug\folders\1000\2\jsoup-1.10.2_d8a4dd9418253b39c5ed5d165c78ce644c879dec\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Sebastian\AndroidStudioProjects\APP_1\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="16ced1187149beb246ae4c62743f99c93c1477a0">
-        <dex dex="C:\Users\Sebastian\AndroidStudioProjects\APP_1\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_1a8872f1cb3b86a618d1da0fe43d1c46b15d57d0\classes.dex" />
+        <dex dex="/Users/victor/Desktop/poke_apk/app/build/intermediates/transforms/dex/debug/folders/1000/2/jsoup-1.10.2_8e0811613c65449df00db54f7148d7443fa61065/classes.dex" />
     </item>
 
 </items>
