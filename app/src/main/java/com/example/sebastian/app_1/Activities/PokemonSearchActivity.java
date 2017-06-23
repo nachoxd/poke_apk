@@ -85,7 +85,23 @@ public class PokemonSearchActivity extends AppCompatActivity {
                 int type1 = converter.StringToIntType(context,AsyncPokemonSearch.type1);
                 int type2 = converter.StringToIntType(context,AsyncPokemonSearch.type2);
 
-                db.addPokemon(x.getText().toString(),type1,type2, AsyncPokemonSearch.type1, AsyncPokemonSearch.type2,"levitate",team_id, AsyncPokemonSearch.image);
+                //ADD POKEMON TO DB
+                int poke_id = db.addPokemon(x.getText().toString(),type1,type2, AsyncPokemonSearch.type1, AsyncPokemonSearch.type2,adapter.getAbility(position,1).split("#")[0],team_id, AsyncPokemonSearch.image);
+
+                //ADD ABILITIES TO DB
+
+                String a1 = adapter.getAbility(position,1);
+                String a2 = adapter.getAbility(position,2);
+                String a3 = adapter.getAbility(position,3);
+
+                db.addAbility(poke_id,a1.split("#")[0],a1.split("#")[1]);
+                if(a2 != null){
+                    db.addAbility(poke_id,a2.split("#")[0],a2.split("#")[1]);
+                }
+                if(a3 != null){
+                    db.addAbility(poke_id,a3.split("#")[0],a3.split("#")[1]);
+                }
+
 
                 Toast.makeText(getApplicationContext(),"Pokemon ha sido agregado al Team",Toast.LENGTH_SHORT).show();
                 //INTENT AND BACK TO TEAM ACTIVITY

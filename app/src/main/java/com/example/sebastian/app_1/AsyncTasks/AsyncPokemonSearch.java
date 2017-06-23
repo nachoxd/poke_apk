@@ -24,6 +24,7 @@ public class AsyncPokemonSearch extends AsyncTask<String, Integer, Bitmap> {
     PokemonSearchAdapter adapter;
     public static String type1 = "", type2 = "";
     public static Bitmap image;
+
     public AsyncPokemonSearch(PokemonSearchAdapter adapter){
         this.adapter = adapter;
     }
@@ -40,8 +41,30 @@ public class AsyncPokemonSearch extends AsyncTask<String, Integer, Bitmap> {
             // REQUEST
             Document doc = Jsoup.connect("http://pokemondb.net/pokedex/" + params[0]).get();
 
-            // GET POKEMON'S TYPYING
+
             Element table = doc.getElementsByClass("vitals-table").first();
+
+
+            //GET POKEMON'S ABILITIES
+
+            Element abilities = table.select("tr").get(5);
+            Log.d("abilities",""+abilities);
+            String a1,a2=null,a3=null;
+
+            a1 = abilities.select("a").get(0).text() + "#" + abilities.select("a").get(0).attr("title");
+            if(abilities.select("a").size() >= 2){
+                a2 = abilities.select("a").get(1).text() + "#" + abilities.select("a").get(1).attr("title");
+            }
+            if(abilities.select("a").size() >= 3){
+                a3 = abilities.select("a").get(2).text() + "#" + abilities.select("a").get(2).attr("title");
+            }
+
+            Log.d("a1",a1);
+            Log.d("a2",""+a2);
+            Log.d("a3",""+a3);
+
+
+            // GET POKEMON'S TYPYING
             Element tipo1 = table.getElementsByClass("type-icon").first();
             Element tipo2 = null;
             if(table.getElementsByClass("type-icon").size() != 1){
@@ -59,7 +82,7 @@ public class AsyncPokemonSearch extends AsyncTask<String, Integer, Bitmap> {
             image = loadFromURL("http://play.pokemonshowdown.com/sprites/bw/"+params[0]+".png");
 
             //SEND DATA TO POKEMON SEARCH ADAPTER
-            adapter.addPokemon(params[0].substring(0,1).toUpperCase()+params[0].substring(1), image, stringTipo1,stringTipo2);
+            adapter.addPokemon(params[0].substring(0,1).toUpperCase()+params[0].substring(1), image, stringTipo1,stringTipo2,a1,a2,a3);
 
 
         } catch (IOException e) {

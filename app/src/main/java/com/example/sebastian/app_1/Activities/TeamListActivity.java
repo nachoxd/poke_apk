@@ -88,7 +88,7 @@ public class TeamListActivity extends AppCompatActivity implements View.OnClickL
                     else{
                         //IF NAME REQUIREMENTS MET -> ADD TEAM + REFRESH VIEW
                         db.addTeam(name);
-                        Toast.makeText(getApplicationContext(),"Team "+name+" has been succesfully added",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),name+" has been succesfully added",Toast.LENGTH_SHORT).show();
                         finish();
                         startActivity(getIntent());
                     }

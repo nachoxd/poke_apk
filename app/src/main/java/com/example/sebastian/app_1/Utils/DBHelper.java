@@ -39,6 +39,16 @@ public class DBHelper extends SQLiteOpenHelper {
 
             + ")";
 
+    private static final String CREATE_TABLE_ABILITY = "create table if not exists ability"
+            + "("
+            + "_id" + " integer primary key autoincrement, "
+            + "name" + " text not null, "
+            + "description" + " text not null, "
+            + "poke_id" + " integer,"
+            + "FOREIGN KEY(poke_id) REFERENCES pokemon(_id) "
+            + ")";
+
+
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -49,6 +59,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE_TEAM);
         db.execSQL(CREATE_TABLE_POKEMON);
+        db.execSQL(CREATE_TABLE_ABILITY);
 
 
     }
@@ -62,18 +73,21 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL(CREATE_TABLE_TEAM);
         db.execSQL(CREATE_TABLE_POKEMON);
+        db.execSQL(CREATE_TABLE_ABILITY);
 
     }
 
     //DROP DB TABLES (ONLY USED FOR TESTING PURPOSES)
     public void dropTables(){
         SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DROP TABLE IF EXISTS ability");
         db.execSQL("DROP TABLE IF EXISTS pokemon");
         db.execSQL("DROP TABLE IF EXISTS team");
+
     }
 
     //ADD POKEMON TO DB. TEAM ID REQUIRED
-    public void addPokemon(String name, int type1,int type2, String typeString1, String typeString2, String ability,int team_id, Bitmap image){
+    public int addPokemon(String name, int type1,int type2, String typeString1, String typeString2, String ability,int team_id, Bitmap image){
         SQLiteDatabase db = this.getWritableDatabase();
         Converter converter = new Converter();
         String imageString = converter.BitMapToString(image);
@@ -92,6 +106,10 @@ public class DBHelper extends SQLiteOpenHelper {
                 "'"+imageString + "'" +
 
                 ")");
+
+        Cursor cursor = db.query("pokemon",null,null,null,null,null,null);
+        cursor.moveToLast();
+        return cursor.getInt(0);
     }
 
     public void deletePokemon(int poke_id){
@@ -164,6 +182,35 @@ public class DBHelper extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
         }
         return pokemons;
+    }
+
+    public void addAbility(int poke_id, String name, String description){
+        SQLiteDatabase db = this.getWritableDatabase();
+        name = name.replace("'","");
+        description = description.replace("'","");
+        db.execSQL("INSERT INTO ability (name,description,poke_id) VALUES " +
+                "(" +
+                "'"+name + "',"+
+
+                "'"+ description + "',"+
+
+                poke_id +
+
+                ")");
+
+    }
+    public ArrayList<String> getAbilities(int poke_id){
+        ArrayList<String> abilities = new ArrayList<>();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM ability WHERE poke_id = "+poke_id,null);
+
+        if(cursor.moveToFirst()){
+            do{
+                abilities.add(cursor.getString(1)+"#"+cursor.getString(2));
+            }while (cursor.moveToNext());
+        }
+        Log.d("ABILITYSIZE",""+cursor.getCount());
+        return abilities;
     }
 
 }

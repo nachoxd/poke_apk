@@ -3,6 +3,7 @@ package com.example.sebastian.app_1.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -20,6 +21,8 @@ import java.util.List;
 public class TeamActivity extends AppCompatActivity {
     ListView lv;
     private int team_id = 0;
+    private TeamAdapter adapter;
+    private DBHelper db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,17 +31,18 @@ public class TeamActivity extends AppCompatActivity {
 
         Intent intent_in = getIntent();
         Bundle extras = intent_in.getExtras();
+
         if (extras!=null) {
 
             //GET TEAM FROM ID
             team_id = extras.getInt("TEAM_ID");
-            DBHelper db = new DBHelper(this);
+            db = new DBHelper(this);
 
             //GET POKEMONS FROM TEAM
             List<Pokemon> pokemons = db.getPokemonsFromTeam(team_id);
 
             //LOAD POKEMONS IN LIST ADAPTER
-            TeamAdapter adapter = new TeamAdapter(this,R.layout.poke_list_listview_item_row,pokemons);
+            adapter = new TeamAdapter(this,R.layout.poke_list_listview_item_row,pokemons);
             lv = (ListView) findViewById(R.id.lv);
             View header = (View) getLayoutInflater().inflate(R.layout.poke_list_header_row,null);
             lv.addHeaderView(header);
@@ -72,6 +76,10 @@ public class TeamActivity extends AppCompatActivity {
                 else if(v.equals("Froslass")){
                     intent.putExtra("NAME","Froslass");
                 }
+
+
+                int poke_id = adapter.getItem(position-1).id;
+                Log.d("Abilities",""+db.getAbilities(poke_id));
                 startActivity(intent);
             }
         });

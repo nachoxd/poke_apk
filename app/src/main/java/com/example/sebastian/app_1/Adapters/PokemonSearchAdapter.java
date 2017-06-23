@@ -26,7 +26,8 @@ public class PokemonSearchAdapter extends ArrayAdapter<String> {
 
     private List<Bitmap> icon;
 
-    private List<String> tipo1, tipo2;
+    private List<String> tipo1, tipo2, ab1,ab2,ab3;
+
 
     public PokemonSearchAdapter(Activity context, List<String> itemname) {
         super(context, R.layout.pokemon_search_list, itemname);
@@ -40,6 +41,9 @@ public class PokemonSearchAdapter extends ArrayAdapter<String> {
         //type_int_2 = new ArrayList<ImageView>();
         tipo1 = new ArrayList<String>();
         tipo2 = new ArrayList<String>();
+        ab1 = new ArrayList<String>();
+        ab2 = new ArrayList<String>();
+        ab3 = new ArrayList<String>();
         
     }
 
@@ -183,15 +187,28 @@ public class PokemonSearchAdapter extends ArrayAdapter<String> {
 
     }
 
-    public void addPokemon(String name, Bitmap image, String tipo1, String tipo2) {
-
+    public void addPokemon(String name, Bitmap image, String tipo1, String tipo2,String a1,String a2, String a3) {
 
         itemname.add(0, name);
         icon.add(0, image);
         this.tipo1.add(0, tipo1);
         this.tipo2.add(0, tipo2);
+        this.ab1.add(0,a1);
+        this.ab2.add(0,a2);
+        this.ab3.add(0,a3);
 
     }
 
-
+    public String getAbility(int position,int order){
+        if(order == 1){
+            return ab1.get(position);
+        }
+        else if(order == 2){
+            return ab2.get(position);
+        }
+        else if(order == 3){
+            return ab3.get(position);
+        }
+        return "";
+    }
 }
