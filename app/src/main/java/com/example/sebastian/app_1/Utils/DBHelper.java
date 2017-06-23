@@ -93,6 +93,19 @@ public class DBHelper extends SQLiteOpenHelper {
 
                 ")");
     }
+
+    public void deletePokemon(int poke_id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM pokemon WHERE id = " + Integer.toString(poke_id));
+    }
+
+
+    public void deleteTeam(int team_id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM pokemon WHERE team_id = " + Integer.toString(team_id));
+        db.execSQL("DELETE FROM team WHERE id = " + Integer.toString(team_id));
+    }
+
     //ADD TEAM TO DB
     public void addTeam(String name){
         SQLiteDatabase db = this.getWritableDatabase();
