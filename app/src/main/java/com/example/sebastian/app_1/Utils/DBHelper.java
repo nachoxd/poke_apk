@@ -48,6 +48,19 @@ public class DBHelper extends SQLiteOpenHelper {
             + "FOREIGN KEY(poke_id) REFERENCES pokemon(_id) "
             + ")";
 
+    private static final String CREATE_TABLE_ATTACK = "create table if not exists attack"
+            + "("
+            + "_id" + " integer primary key autoincrement, "
+            + "name" + " text not null, "
+            + "description" + " text not null, "
+            + "type_string" + " text not null, "
+            + "type_int" + " int not null, "
+            + "category" + " text not null, "
+            + "power" + " int not null, "
+            + "accuracy" + " int not null, "
+            + "poke_id" + " integer,"
+            + "FOREIGN KEY(poke_id) REFERENCES pokemon(_id) "
+            + ")";
 
 
     public DBHelper(Context context) {
@@ -60,7 +73,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_TEAM);
         db.execSQL(CREATE_TABLE_POKEMON);
         db.execSQL(CREATE_TABLE_ABILITY);
-
+        db.execSQL(CREATE_TABLE_ATTACK);
 
     }
 
@@ -74,7 +87,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_TEAM);
         db.execSQL(CREATE_TABLE_POKEMON);
         db.execSQL(CREATE_TABLE_ABILITY);
-
+        db.execSQL(CREATE_TABLE_ATTACK);
     }
 
     //DROP DB TABLES (ONLY USED FOR TESTING PURPOSES)
@@ -115,6 +128,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public void deletePokemon(int poke_id){
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM pokemon WHERE id = " + Integer.toString(poke_id));
+        db.execSQL("DELETE FROM ability WHERE poke_id = " + Integer.toString(poke_id));
+        db.execSQL("DELETE FROM attack WHERE poke_id = " + Integer.toString(poke_id));
     }
 
 
@@ -209,8 +224,36 @@ public class DBHelper extends SQLiteOpenHelper {
                 abilities.add(cursor.getString(1)+"#"+cursor.getString(2));
             }while (cursor.moveToNext());
         }
-        Log.d("ABILITYSIZE",""+cursor.getCount());
         return abilities;
     }
 
+
+    public void addAttack(int poke_id, String name, String description, String type_string, int type_int, String category, int power, int accuracy){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("INSERT INTO attack (name,description,type_string,type_int,category,power,accuracy,poke_id) VALUES " +
+                "(" +
+                "'"+name + "',"+
+
+                "'"+ description + "'," +
+                "'"+ type_string + "'," +
+                "'"+ type_int + "'," +
+                "'"+ category + "'," +
+                "'"+ power + "'," +
+                "'"+ accuracy + "'," +
+                poke_id +
+                ")");
+    }
+    public ArrayList<Attack> getAttacks(int poke_id){
+        ArrayList<Attack> attacks = new ArrayList<Attack>();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM attack WHERE poke_id = "+poke_id,null);
+
+        if(cursor.moveToFirst()){
+            do{
+                attacks.add(new Attack(cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getInt(4),cursor.getString(5),cursor.getInt(6),cursor.getInt(7)));
+            }while (cursor.moveToNext());
+        }
+        Log.d("ATTACK AMOUNT",attacks.size()+"");
+        return attacks;
+    }
 }

@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.example.sebastian.app_1.AsyncTasks.AsyncPokemonSearch;
 import com.example.sebastian.app_1.Adapters.PokemonSearchAdapter;
 import com.example.sebastian.app_1.R;
+import com.example.sebastian.app_1.Utils.Attack;
 import com.example.sebastian.app_1.Utils.Converter;
 import com.example.sebastian.app_1.Utils.DBHelper;
 
@@ -101,6 +102,16 @@ public class PokemonSearchActivity extends AppCompatActivity {
                 if(a3 != null){
                     db.addAbility(poke_id,a3.split("#")[0],a3.split("#")[1]);
                 }
+
+                //ADD ATTACKS TO DB
+
+                for(Attack atk : AsyncPokemonSearch.attacks){
+                    db.addAttack(poke_id,atk.name,atk.description,atk.type_string,atk.type_int,atk.category,atk.power,atk.accuracy);
+                }
+
+                //TEST CHECK
+
+                db.getAttacks(poke_id);
 
 
                 Toast.makeText(getApplicationContext(),"Pokemon ha sido agregado al Team",Toast.LENGTH_SHORT).show();
