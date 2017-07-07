@@ -35,7 +35,25 @@ public class DBHelper extends SQLiteOpenHelper {
             + "ability" + " text not null, "
             + "team_id" + " integer,"
             + "image" + " blob,"
-            + "FOREIGN KEY(team_id) REFERENCES team(_id) "
+
+            + "move1" + " text not null, "
+            + "move2" + " text not null, "
+            + "move3" + " text not null, "
+            +" move4" + " text not null, "
+
+            + "move1_id" + " int not null, "
+            + "move2_id" + " int not null, "
+            + "move3_id" + " int not null, "
+            + "move4_id" + " int not null, "
+
+
+
+            + "FOREIGN KEY(team_id) REFERENCES team(_id), "
+            + "FOREIGN KEY(move1_id) REFERENCES attack(_id), "
+            + "FOREIGN KEY(move2_id) REFERENCES attack(_id), "
+            + "FOREIGN KEY(move3_id) REFERENCES attack(_id), "
+            + "FOREIGN KEY(move4_id) REFERENCES attack(_id), "
+
 
             + ")";
 
@@ -255,5 +273,17 @@ public class DBHelper extends SQLiteOpenHelper {
         }
         Log.d("ATTACK AMOUNT",attacks.size()+"");
         return attacks;
+    }
+
+    public void updateAttack(int atk_id, String description){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.rawQuery("UPDATE attack SET description = '"+description+"' WHERE id= "+atk_id,null);
+    }
+
+    //UPDATES AN ATTACK OF A POKEMON. POSITION INDICATES WHICH MOVE WILL BE ADDED OR REPLACED
+    //POSIBLE POSITION VALUES = [1,2,3,4]
+    public void addAttackToPokemon(int poke_id, int atk_id, String atk_name, int position){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.rawQuery("UPDATE pokemon SET move"+position+" = '"+atk_name+"', move"+position+"_id = "+atk_id+" WHERE id= "+poke_id,null);
     }
 }
