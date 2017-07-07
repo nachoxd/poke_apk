@@ -3,30 +3,165 @@
 
     <item
         is-multidex="true"
-        jar="/Users/victor/Desktop/poke_apk/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jar="/home/nacho/.android/build-cache/c03fb3338a3f7aba813219888848f19603a21cd6/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="caff8e51a24901cfc9cd7e1cf83d84f4cb0c103b">
-        <dex dex="/Users/victor/Desktop/poke_apk/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_068c8e68de270362e76082d58d933727eeeb2561/classes.dex" />
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="/home/nacho/poke_apk/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_f6c8be43cc492dff177889358dcf6a8f9221d354/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/victor/Desktop/poke_apk/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jar="/home/nacho/.android/build-cache/4a8807c2e8e1141a219a23be395d107ad05d7a60/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="1251f48a7cfb13c938413f3ab5873eb39722ca1d">
-        <dex dex="/Users/victor/Desktop/poke_apk/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_4e053dbdfa6164c71a2625a3161d7a3693a8517a/classes.dex" />
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="/home/nacho/poke_apk/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a2df21249c988221f195addbd27c23d252ab2319/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/victor/Desktop/poke_apk/app/libs/jsoup-1.10.2.jar"
+        jar="/home/nacho/poke_apk/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/home/nacho/poke_apk/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_11970c06cd0a1c7ddffa647be98adfb034d8d543/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/nacho/Android/Sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="/home/nacho/poke_apk/app/build/intermediates/transforms/dex/debug/folders/1000/10/constraint-layout-solver-1.0.2_d7e92a27164d573ae8a2db77ab20d755abbc8a84/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/nacho/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="/home/nacho/poke_apk/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.3.1_55aa793d68e993db812e1e4f78a697cdf0817349/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/nacho/.android/build-cache/706f85c874ad39f600be1598604a53794fb69fd3/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="/home/nacho/poke_apk/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_e68861189da100f41a82c34b3cd20396c5c5780a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/nacho/.android/build-cache/f798bd15a2187bb9877ea6fddc5b8b725ec6d52c/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
+        <dex dex="/home/nacho/poke_apk/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_9f0d20b57df77b6c939d46cad3b2d78921b9b8ca/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/nacho/.android/build-cache/592b7fb23830ff682ce91ff4a4cd900d953c5694/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="/home/nacho/poke_apk/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_fbda7209fc8552128bc459ec50d254e9445ddc09/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/nacho/poke_apk/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4dceb3fb03b5e1a453401dc29f2872658a81a6f6">
+        <dex dex="/home/nacho/poke_apk/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_9bb25bd40b1a6d3a9c9a173c5d1bd5a9a038c104/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/nacho/poke_apk/app/libs/jsoup-1.10.2.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="61f84a97f1a4f5905547b8b74afff8dc93f4cfce">
-        <dex dex="/Users/victor/Desktop/poke_apk/app/build/intermediates/transforms/dex/debug/folders/1000/2/jsoup-1.10.2_8e0811613c65449df00db54f7148d7443fa61065/classes.dex" />
+        <dex dex="/home/nacho/poke_apk/app/build/intermediates/transforms/dex/debug/folders/1000/2/jsoup-1.10.2_6930dd935c57c632c99cf47c94ce6d6c65a04b36/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/nacho/.android/build-cache/38c17e8430dccb90164f64fbd99f510b1fe66217/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="/home/nacho/poke_apk/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_c719fdcbdb4bae20aa564d789249babda00b748e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/nacho/.android/build-cache/830501e69147f42d14e3937e5bf72bf87ee98e07/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="/home/nacho/poke_apk/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_6ac854df649cc944cadb90df6750ec93e0368562/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/nacho/.android/build-cache/7ba246824c08dff0610452aebc3d0b0149f87f67/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="/home/nacho/poke_apk/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_f3317841520822ad0eb4f904fba7c451a97003fb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/nacho/.android/build-cache/20decae5d76a26486ef18fdda382824542ceb65a/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/nacho/poke_apk/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_041faf6061458be5a80728f2f55d14cdd9bc788e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/nacho/.android/build-cache/aca7e3e4247a992ebefb1f7790d8ef7b86e0b34c/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="/home/nacho/poke_apk/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_709fe0ded9fc844873ca17edc35f332385ba2afa/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/nacho/.android/build-cache/0d0b3d6e7fe46eb473853a32537e47511beedc31/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="/home/nacho/poke_apk/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_9cceea448c962f5a95efc2a07324efa5ddfaf4b9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/nacho/.android/build-cache/3c4f18d94b654a64ccb8d0357dad0e2a72a675be/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="/home/nacho/poke_apk/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0e2d0d1b01737f2bbe423f1b4ac955299008be41/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/nacho/.android/build-cache/dd5d77777528aeba764972086dd72e4588aa07c6/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
+        <dex dex="/home/nacho/poke_apk/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_55d6e6deba73c9d50a97abb3fa518fd0fdd7a989/classes.dex" />
     </item>
 
 </items>

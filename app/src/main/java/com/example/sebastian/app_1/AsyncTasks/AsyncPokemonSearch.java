@@ -15,6 +15,7 @@ import org.jsoup.nodes.Element;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -156,7 +157,8 @@ public class AsyncPokemonSearch extends AsyncTask<String, Integer, Bitmap> {
             }
 
             //LOAD POKEMON IMAGE
-            image = loadFromURL("http://play.pokemonshowdown.com/sprites/bw/"+params[0]+".png");
+            URL url = new URL("http://play.pokemonshowdown.com/sprites/bw/"+params[0]+".png");
+            image = BitmapFactory.decodeStream(url.openConnection().getInputStream());
 
             //SEND DATA TO POKEMON SEARCH ADAPTER
             adapter.addPokemon(params[0].substring(0,1).toUpperCase()+params[0].substring(1), image, stringTipo1,stringTipo2,a1,a2,a3);

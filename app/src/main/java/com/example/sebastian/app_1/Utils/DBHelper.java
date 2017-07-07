@@ -52,7 +52,7 @@ public class DBHelper extends SQLiteOpenHelper {
             + "FOREIGN KEY(move1_id) REFERENCES attack(_id), "
             + "FOREIGN KEY(move2_id) REFERENCES attack(_id), "
             + "FOREIGN KEY(move3_id) REFERENCES attack(_id), "
-            + "FOREIGN KEY(move4_id) REFERENCES attack(_id), "
+            + "FOREIGN KEY(move4_id) REFERENCES attack(_id) "
 
 
             + ")";
@@ -122,7 +122,7 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Converter converter = new Converter();
         String imageString = converter.BitMapToString(image);
-        db.execSQL("INSERT INTO pokemon (name,type_int_1,type_int_2,type_string_1,type_string_2,ability,team_id,image) VALUES " +
+        db.execSQL("INSERT INTO pokemon (name,type_int_1,type_int_2,type_string_1,type_string_2,ability,team_id,image,move1,move2,move3,move4,move1_id,move2_id,move3_id,move4_id) VALUES " +
                 "(" +
                 "'"+name + "',"+
                 type1 + "," +
@@ -134,7 +134,18 @@ public class DBHelper extends SQLiteOpenHelper {
                 "'"+ability + "',"+
                 team_id + "," +
 
-                "'"+imageString + "'" +
+                "'"+imageString + "'," +
+
+                " '', " +
+                " '', " +
+                " '', " +
+                " '', " +
+
+                " -1, " +
+                " -1, " +
+                " -1, " +
+                " -1 " +
+
 
                 ")");
 
