@@ -14,8 +14,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.sebastian.app_1.AsyncTasks.AsyncPokemonSearch;
 import com.example.sebastian.app_1.Adapters.PokemonSearchAdapter;
+import com.example.sebastian.app_1.AsyncTasks.AsyncPokemonSearch;
 import com.example.sebastian.app_1.R;
 import com.example.sebastian.app_1.Utils.Attack;
 import com.example.sebastian.app_1.Utils.Converter;
@@ -106,7 +106,11 @@ public class PokemonSearchActivity extends AppCompatActivity {
                 //ADD ATTACKS TO DB
 
                 for(Attack atk : AsyncPokemonSearch.attacks){
-                    db.addAttack(poke_id,atk.name,atk.description,atk.type_string,atk.type_int,atk.category,atk.power,atk.accuracy);
+                    type1 = converter.StringToIntType(PokemonSearchActivity.this,atk.type_string.toLowerCase());
+                    if(type1 != 0){
+                        db.addAttack(poke_id,atk.name,atk.description,atk.type_string,type1,atk.category,atk.power,atk.accuracy);
+                    }
+
                 }
 
                 //TEST CHECK

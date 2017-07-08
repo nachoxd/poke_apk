@@ -7,6 +7,7 @@ import android.util.Log;
 
 import com.example.sebastian.app_1.Adapters.PokemonSearchAdapter;
 import com.example.sebastian.app_1.Utils.Attack;
+import com.example.sebastian.app_1.Utils.Converter;
 
 import org.jsoup.Jsoup;
 import org.jsoup.helper.StringUtil;
@@ -45,10 +46,11 @@ public class AsyncPokemonSearch extends AsyncTask<String, Integer, Bitmap> {
             attacks = new ArrayList<Attack>();
             ArrayList<String> nameHelper = new ArrayList<String>();
             // REQUEST
-            Document doc = Jsoup.connect("http://pokemondb.net/pokedex/" + params[0]).get();
+            Document doc = Jsoup.connect("https://pokemondb.net/pokedex/" + params[0]).get();
 
 
             // GET POKEMON'S ATTACKS
+            Converter converter = new Converter();
 
             Element container_atk = doc.getElementsByClass("tabset-moves-game").first();
 
@@ -58,6 +60,7 @@ public class AsyncPokemonSearch extends AsyncTask<String, Integer, Bitmap> {
             String name = null,type = null,category = null;
             int power = 0,accuracy = 0;
             Element current;
+            Attack new_atk;
             while(ite.hasNext()){
                 ite2 = ite.next().select("tr").iterator();
                 while(ite2.hasNext()){
@@ -115,7 +118,9 @@ public class AsyncPokemonSearch extends AsyncTask<String, Integer, Bitmap> {
                     }
 
                     if(!nameHelper.contains(name)){
-                        attacks.add(new Attack(name,"description",type,1,category,power,accuracy));
+                        new_atk = new Attack(name,"description",type,1,category,power,accuracy);
+                        //Log.d("NEW ATK",new_atk.name+" "+new_atk.description+" "+new_atk.type_string+" "+new_atk.type_int+ " "+new_atk.category+" "+ new_atk.power+ " "+ new_atk.accuracy);
+                        attacks.add(new_atk);
                         nameHelper.add(name);
                     }
 

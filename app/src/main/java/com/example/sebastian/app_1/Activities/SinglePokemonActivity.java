@@ -12,8 +12,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.sebastian.app_1.R;
+import com.example.sebastian.app_1.Utils.Attack;
 import com.example.sebastian.app_1.Utils.DBHelper;
 import com.example.sebastian.app_1.Utils.Pokemon;
+
+import java.util.ArrayList;
 
 /**
  * Created by Sebastian on 25-05-2017.
@@ -40,7 +43,21 @@ public class SinglePokemonActivity extends AppCompatActivity implements View.OnC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.single_poke_main);
-
+        icon = (ImageView) findViewById(R.id.elem_icon);
+        name = (TextView) findViewById(R.id.elem_tv);
+        type1 = (ImageView) findViewById(R.id.type_int_1);
+        type2 = (ImageView) findViewById(R.id.type_int_2);
+        ability = (TextView) findViewById(R.id.ability_dinamic);
+        move1 = (TextView) findViewById(R.id.move1);
+        move1_type = (ImageView) findViewById(R.id.move1_type);
+        move2 = (TextView) findViewById(R.id.move2);
+        move2_type = (ImageView) findViewById(R.id.move2_type);
+        move3 = (TextView) findViewById(R.id.move3);
+        move3_type = (ImageView) findViewById(R.id.move3_type);
+        move4 = (TextView) findViewById(R.id.move4);
+        move4_type = (ImageView) findViewById(R.id.move4_type);
+        btn = (Button) findViewById(R.id.button_delete_poke);
+        btn.setOnClickListener(this);
         //FILL SPACES WITH INTENT INFO
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
@@ -51,28 +68,25 @@ public class SinglePokemonActivity extends AppCompatActivity implements View.OnC
 
             DBHelper db = new DBHelper(this);
             Pokemon pokemon = db.getPokemon(poke_id);
-
+            ArrayList<Attack> attacks = db.getAttacks(poke_id);
             //ELEMENTS OF SINGLE POKEMON VIEW
-            icon = (ImageView) findViewById(R.id.elem_icon);
+
             icon.setImageBitmap(pokemon.image);
-            name = (TextView) findViewById(R.id.elem_tv);
             name.setText(pokemon.name);
-            type1 = (ImageView) findViewById(R.id.type_int_1);
             type1.setImageResource(pokemon.type_int_1);
-            type2 = (ImageView) findViewById(R.id.type_int_2);
             type2.setImageResource(pokemon.type_int_2);
-            ability = (TextView) findViewById(R.id.ability_dinamic);
             ability.setText(pokemon.ability);
-            move1 = (TextView) findViewById(R.id.move1);
-            move1_type = (ImageView) findViewById(R.id.move1_type);
-            move2 = (TextView) findViewById(R.id.move2);
-            move2_type = (ImageView) findViewById(R.id.move2_type);
-            move3 = (TextView) findViewById(R.id.move3);
-            move3_type = (ImageView) findViewById(R.id.move3_type);
-            move4 = (TextView) findViewById(R.id.move4);
-            move4_type = (ImageView) findViewById(R.id.move4_type);
-            btn = (Button) findViewById(R.id.button_delete_poke);
-            btn.setOnClickListener(this);
+            move1.setText(attacks.get(0).name);
+            move1_type.setImageResource(attacks.get(0).type_int);
+            move2.setText(attacks.get(1).name);
+            move2_type.setImageResource(attacks.get(1).type_int);
+            move3.setText(attacks.get(2).name);
+            move3_type.setImageResource(attacks.get(2).type_int);
+            move4.setText(attacks.get(3).name);
+            move4_type.setImageResource(attacks.get(3).type_int);
+
+
+
         }
 
     }
