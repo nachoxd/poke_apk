@@ -262,5 +262,18 @@
         android:layout_width="match_parent"
         android:layout_height="250dp">
 
+        <Button
+            android:id="@+id/button_delete_poke"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/trash"
+            android:layout_marginRight="22dp"
+            android:layout_marginEnd="22dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="89dp" />
+
+
     </RelativeLayout>
 </LinearLayout>
