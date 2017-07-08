@@ -29,18 +29,6 @@ public class TeamAdapter extends ArrayAdapter<Pokemon> {
         this.datos = data;
 
 
-
-
-        /*if(team.equals("Team Kawaii")){
-            datos.add(new Pokemon(R.drawable.gengar,"Gengar",R.drawable.ghost,R.drawable.poison,"Cursed Body"));
-            datos.add(new Pokemon(R.drawable.froslass,"Froslass",R.drawable.ice,R.drawable.ghost,"Snow Cloak"));
-            datos.add(new Pokemon(R.drawable.gliscor,"Gliscor",R.drawable.ground,R.drawable.flying,"Poison Heal"));
-            datos.add(new Pokemon(R.drawable.sceptile,"Sceptile",R.drawable.grass,R.drawable.nulo,"Unburden"));
-            datos.add(new Pokemon(R.drawable.togekiss,"Togekiss",R.drawable.fairy,R.drawable.flying,"Serene Grace"));
-            datos.add(new Pokemon(magnezone,"Magnezone",R.drawable.electric,R.drawable.steel,"Magnet Pull"));
-            this.notifyDataSetChanged();
-        }*/
-
     }
     public View getView(int position, View convertview, ViewGroup parent){
         View row = convertview;

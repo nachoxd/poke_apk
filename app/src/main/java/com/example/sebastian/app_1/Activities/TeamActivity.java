@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.example.sebastian.app_1.Adapters.TeamAdapter;
 import com.example.sebastian.app_1.R;
@@ -55,28 +54,8 @@ public class TeamActivity extends AppCompatActivity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                TextView x = (TextView)view.findViewById(R.id.elem_tv);
-                Intent intent = new Intent(TeamActivity.this,SinglePokemonActivity.class);
-                String v = x.getText().toString();
-                if(v.equals("Gengar")){
-                    intent.putExtra("NAME","Gengar");
-                }
-                else if(v.equals("Sceptile")){
-                    intent.putExtra("NAME","Sceptile");
-                }
-                else if(v.equals("Togekiss")){
-                    intent.putExtra("NAME","Togekiss");
-                }
-                else if(v.equals("Magnezone")){
-                    intent.putExtra("NAME","Magnezone");
-                }
-                else if(v.equals("Gliscor")){
-                    intent.putExtra("NAME","Gliscor");
-                }
-                else if(v.equals("Froslass")){
-                    intent.putExtra("NAME","Froslass");
-                }
 
+                Intent intent = new Intent(TeamActivity.this,SinglePokemonActivity.class);
 
                 int poke_id = adapter.getItem(position-1).id;
                 Log.d("Abilities",""+db.getAbilities(poke_id));
@@ -90,7 +69,6 @@ public class TeamActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(TeamActivity.this,PokemonSearchActivity.class);
-
                 intent.putExtra("TEAM_ID",team_id);
                 startActivity(intent);
                 finish();

@@ -154,6 +154,35 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor.getInt(0);
     }
 
+    public Pokemon getPokemon(int poke_id){
+        Converter converter = new Converter();
+        Pokemon pokemon = new Pokemon();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM pokemon WHERE _id = "+poke_id,null);
+        if(cursor.moveToFirst()){
+            pokemon.id = cursor.getInt(0);
+            pokemon.name = cursor.getString(1);
+            pokemon.type_int_1 = cursor.getInt(2);
+            pokemon.type_int_2 = cursor.getInt(3);
+            pokemon.type_string_1 = cursor.getString(4);
+            pokemon.type_string_2 = cursor.getString(5);
+            pokemon.ability = cursor.getString(6);
+            pokemon.team_id = cursor.getInt(7);
+            pokemon.image = converter.StringToBitMap(cursor.getString(8));
+
+            /*pokemon.move1 = cursor.getString(9);
+            pokemon.move2 = cursor.getString(10);
+            pokemon.move3 = cursor.getString(11);
+            pokemon.move4 = cursor.getString(12);
+            pokemon.move1_id = cursor.getInt(13);
+            pokemon.move2_id = cursor.getInt(14);
+            pokemon.move3_id = cursor.getInt(15);
+            pokemon.move4_id = cursor.getInt(16);*/
+        }
+
+        return pokemon;
+    }
+
     public void deletePokemon(int poke_id){
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM pokemon WHERE _id = " + Integer.toString(poke_id));
