@@ -81,6 +81,7 @@ public class TeamActivity extends AppCompatActivity {
                 int poke_id = adapter.getItem(position-1).id;
                 Log.d("Abilities",""+db.getAbilities(poke_id));
                 intent.putExtra("POKE_ID",poke_id);
+                intent.putExtra("TEAM_ID",team_id);
                 startActivity(intent);
             }
         });

@@ -1,11 +1,17 @@
 package com.example.sebastian.app_1.Activities;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.sebastian.app_1.R;
 import com.example.sebastian.app_1.Utils.DBHelper;
@@ -14,7 +20,7 @@ import com.example.sebastian.app_1.Utils.DBHelper;
  * Created by Sebastian on 25-05-2017.
  */
 
-public class SinglePokemonActivity extends AppCompatActivity{
+public class SinglePokemonActivity extends AppCompatActivity implements View.OnClickListener{
     ImageView icon;
     TextView name;
     ImageView type1;
@@ -28,6 +34,9 @@ public class SinglePokemonActivity extends AppCompatActivity{
     ImageView move3_type;
     TextView move4;
     ImageView move4_type;
+    Button btn;
+    int poke_id;
+    int team_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,17 +55,50 @@ public class SinglePokemonActivity extends AppCompatActivity{
         move3_type = (ImageView) findViewById(R.id.move3_type);
         move4 = (TextView) findViewById(R.id.move4);
         move4_type = (ImageView) findViewById(R.id.move4_type);
+        btn = (Button) findViewById(R.id.button_delete_poke);
+        btn.setOnClickListener(this);
         //FILL SPACES WITH INTENT INFO
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         if (extras!=null){
 
-            int poke_id = extras.getInt("POKE_ID");
+            poke_id = extras.getInt("POKE_ID");
+            team_id = extras.getInt("TEAM_ID");
             Log.d("POKE_ID ES",""+poke_id);
-            DBHelper db = new DBHelper(this);
-            db.deletePokemon(poke_id);
-            Log.d("POKEMON","DELETED");
+            //DBHelper db = new DBHelper(this);
+            //db.deletePokemon(poke_id);
+            //Log.d("POKEMON","DELETED");
         }
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId()==R.id.button_delete_poke){
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            alert.setTitle("Delete pokemon");
+            alert.setMessage("");
+            //POSITIVE ANSWER
+            alert.setPositiveButton("Delete", new DialogInterface.OnClickListener(){
+                public void onClick(DialogInterface dialog, int whichButton) {
+                    DBHelper db = new DBHelper(SinglePokemonActivity.this);
+                    db.deletePokemon(poke_id);
+                    Log.d("POKEMON","DELETED");
+                    Intent intent = new Intent(SinglePokemonActivity.this,TeamActivity.class);
+                    intent.putExtra("TEAM_ID",team_id);
+                    startActivity(intent);
+                    finish();
+
+                }
+            });
+            //NEGATIVE ANSWER
+            alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int whichButton) {
+                    //CANCELLED, DO NOTHING
+                }
+            });
+
+            alert.show();
+        }
     }
 }

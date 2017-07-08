@@ -3,30 +3,30 @@
 
     <item
         is-multidex="true"
-        jar="/Users/victor/Desktop/poke_apk/app/libs/jsoup-1.10.2.jar"
+        jar="/home/nacho/poke_apk/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4dceb3fb03b5e1a453401dc29f2872658a81a6f6">
+        <dex dex="/home/nacho/poke_apk/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_9bb25bd40b1a6d3a9c9a173c5d1bd5a9a038c104/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/nacho/poke_apk/app/libs/jsoup-1.10.2.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="61f84a97f1a4f5905547b8b74afff8dc93f4cfce">
-        <dex dex="/Users/victor/Desktop/poke_apk/app/build/intermediates/transforms/dex/debug/folders/1000/2/jsoup-1.10.2_8e0811613c65449df00db54f7148d7443fa61065/classes.dex" />
+        <dex dex="/home/nacho/poke_apk/app/build/intermediates/transforms/dex/debug/folders/1000/2/jsoup-1.10.2_6930dd935c57c632c99cf47c94ce6d6c65a04b36/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/victor/Desktop/poke_apk/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jar="/home/nacho/poke_apk/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="/Users/victor/Desktop/poke_apk/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_068c8e68de270362e76082d58d933727eeeb2561/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/victor/Desktop/poke_apk/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="b2e4801b7cd2e32de7448921d5f341bb871c3ad9">
-        <dex dex="/Users/victor/Desktop/poke_apk/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_4e053dbdfa6164c71a2625a3161d7a3693a8517a/classes.dex" />
+        <dex dex="/home/nacho/poke_apk/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_11970c06cd0a1c7ddffa647be98adfb034d8d543/classes.dex" />
     </item>
 
 </items>
