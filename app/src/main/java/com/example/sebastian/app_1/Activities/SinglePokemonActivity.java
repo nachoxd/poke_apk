@@ -56,9 +56,13 @@ public class SinglePokemonActivity extends AppCompatActivity implements View.OnC
             icon = (ImageView) findViewById(R.id.elem_icon);
             icon.setImageBitmap(pokemon.image);
             name = (TextView) findViewById(R.id.elem_tv);
+            name.setText(pokemon.name);
             type1 = (ImageView) findViewById(R.id.type_int_1);
+            type1.setImageResource(pokemon.type_int_1);
             type2 = (ImageView) findViewById(R.id.type_int_2);
+            type2.setImageResource(pokemon.type_int_2);
             ability = (TextView) findViewById(R.id.ability_dinamic);
+            ability.setText(pokemon.ability);
             move1 = (TextView) findViewById(R.id.move1);
             move1_type = (ImageView) findViewById(R.id.move1_type);
             move2 = (TextView) findViewById(R.id.move2);
