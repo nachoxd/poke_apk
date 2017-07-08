@@ -3,10 +3,12 @@ package com.example.sebastian.app_1.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.sebastian.app_1.R;
+import com.example.sebastian.app_1.Utils.DBHelper;
 
 /**
  * Created by Sebastian on 25-05-2017.
@@ -48,112 +50,12 @@ public class SinglePokemonActivity extends AppCompatActivity{
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         if (extras!=null){
-            String dato = extras.getString("NAME");
-            if(dato.equals("Gengar")){
-                icon.setImageResource(R.drawable.gengar);
-                name.setText("Gengar");
-                type1.setImageResource(R.drawable.ghost);
-                type2.setImageResource(R.drawable.poison);
-                ability.setText("Cursed Body");
-                move1.setText("Shadow Ball");
-                move1_type.setImageResource(R.drawable.ghost);
-                move2.setText("Sludge Bomb");
-                move2_type.setImageResource(R.drawable.poison);
-                move3.setText("Disable");
-                move3_type.setImageResource(R.drawable.normal);
-                move4.setText("Destiny Bond");
-                move4_type.setImageResource(R.drawable.ghost);
-            }
-            else if(dato.equals("Sceptile")){
-                icon.setImageResource(R.drawable.sceptile);
-                name.setText("Sceptile");
-                type1.setImageResource(R.drawable.grass);
-                type2.setImageResource(R.drawable.nulo);
-                ability.setText("Unburden");
-                move1.setText("Giga Drain");
-                move1_type.setImageResource(R.drawable.grass);
-                move2.setText("Dragon Pulse");
-                move2_type.setImageResource(R.drawable.dragon);
-                move3.setText("Hidden Power");
-                move3_type.setImageResource(R.drawable.normal);
-                move4.setText("Protect");
-                move4_type.setImageResource(R.drawable.normal);
-            }
-            if(dato.equals("Togekiss")){
-                icon.setImageResource(R.drawable.togekiss);
-                name.setText("Togekiss");
-                type1.setImageResource(R.drawable.fairy);
-                type2.setImageResource(R.drawable.flying);
-                ability.setText("Serene Grace");
-                move1.setText("Air Slash");
-                move1_type.setImageResource(R.drawable.flying);
-                move2.setText("Dazzling Gleam");
-                move2_type.setImageResource(R.drawable.fairy);
-                move3.setText("Tailwind");
-                move3_type.setImageResource(R.drawable.flying);
-                move4.setText("Roost");
-                move4_type.setImageResource(R.drawable.flying);
-            }
-            if(dato.equals("Gliscor")){
-                icon.setImageResource(R.drawable.gliscor);
-                name.setText("Gliscor");
-                type1.setImageResource(R.drawable.ground);
-                type2.setImageResource(R.drawable.flying);
-                ability.setText("Posion Heal");
-                move1.setText("Acrobatics");
-                move1_type.setImageResource(R.drawable.flying);
-                move2.setText("Earthquake");
-                move2_type.setImageResource(R.drawable.ground);
-                move3.setText("Knock Off");
-                move3_type.setImageResource(R.drawable.dark);
-                move4.setText("Swords Dance");
-                move4_type.setImageResource(R.drawable.normal);
-            }
-            if(dato.equals("Magnezone")){
-                icon.setImageResource(R.drawable.magnezone);
-                name.setText("Magnezone");
-                type1.setImageResource(R.drawable.electric);
-                type2.setImageResource(R.drawable.steel);
-                ability.setText("Magnet Pull");
-                move1.setText("Discharge");
-                move1_type.setImageResource(R.drawable.electric);
-                move2.setText("Flash Cannon");
-                move2_type.setImageResource(R.drawable.steel);
-                move3.setText("Signal Beam");
-                move3_type.setImageResource(R.drawable.bug);
-                move4.setText("Electric Terrain");
-                move4_type.setImageResource(R.drawable.electric);
-            }
-            if(dato.equals("Froslass")){
-                icon.setImageResource(R.drawable.froslass);
-                name.setText("Froslass");
-                type1.setImageResource(R.drawable.ice);
-                type2.setImageResource(R.drawable.ghost);
-                ability.setText("Cursed Body");
-                move1.setText("Blizzard");
-                move1_type.setImageResource(R.drawable.ice);
-                move2.setText("Hex");
-                move2_type.setImageResource(R.drawable.ghost);
-                move3.setText("Thunderbolt");
-                move3_type.setImageResource(R.drawable.electric);
-                move4.setText("Psychic");
-                move4_type.setImageResource(R.drawable.psychic);
-            }
-            else{
-                icon.setImageResource(R.drawable.ditto);
-                name.setText("Ditto");
-                type1.setImageResource(R.drawable.normal);
-                type2.setImageResource(R.drawable.nulo);
-                ability.setText("Imposter");
-                move1.setText("Transform");
-                move1_type.setImageResource(R.drawable.normal);
-                move2.setText("");
-                move2_type.setImageResource(R.drawable.nulo);
-                move3.setText("");
-                move3_type.setImageResource(R.drawable.nulo);
-                move4.setText("");
-                move4_type.setImageResource(R.drawable.nulo);
-            }
+
+            int poke_id = extras.getInt("POKE_ID");
+            Log.d("POKE_ID ES",""+poke_id);
+            DBHelper db = new DBHelper(this);
+            db.deletePokemon(poke_id);
+            Log.d("POKEMON","DELETED");
         }
 
     }

@@ -156,7 +156,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public void deletePokemon(int poke_id){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("DELETE FROM pokemon WHERE id = " + Integer.toString(poke_id));
+        db.execSQL("DELETE FROM pokemon WHERE _id = " + Integer.toString(poke_id));
         db.execSQL("DELETE FROM ability WHERE poke_id = " + Integer.toString(poke_id));
         db.execSQL("DELETE FROM attack WHERE poke_id = " + Integer.toString(poke_id));
     }
@@ -165,7 +165,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void deleteTeam(int team_id){
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM pokemon WHERE team_id = " + Integer.toString(team_id));
-        db.execSQL("DELETE FROM team WHERE id = " + Integer.toString(team_id));
+        db.execSQL("DELETE FROM team WHERE _id = " + Integer.toString(team_id));
     }
 
     //ADD TEAM TO DB
