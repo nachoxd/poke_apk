@@ -36,6 +36,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Activities.MoveListActivity">
+
+
+        </activity>
         <activity
             android:name=".Activities.PokemonSearchActivity"
             android:label="@string/title_activity_pokemon_search"

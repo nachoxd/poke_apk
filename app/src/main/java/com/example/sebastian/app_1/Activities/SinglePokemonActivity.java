@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.sebastian.app_1.R;
 import com.example.sebastian.app_1.Utils.Attack;
@@ -50,6 +49,7 @@ public class SinglePokemonActivity extends AppCompatActivity implements View.OnC
     Button delete4;
     int poke_id;
     int team_id;
+    int atk_position;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,14 +106,41 @@ public class SinglePokemonActivity extends AppCompatActivity implements View.OnC
             type1.setImageResource(pokemon.type_int_1);
             type2.setImageResource(pokemon.type_int_2);
             ability.setText(pokemon.ability);
-            move1.setText(attacks.get(0).name);
-            move1_type.setImageResource(attacks.get(0).type_int);
-            move2.setText(attacks.get(1).name);
-            move2_type.setImageResource(attacks.get(1).type_int);
-            move3.setText(attacks.get(2).name);
-            move3_type.setImageResource(attacks.get(2).type_int);
-            move4.setText(attacks.get(3).name);
-            move4_type.setImageResource(attacks.get(3).type_int);
+
+            if(pokemon.move1_id != -1){
+                move1.setText(db.getAttack(pokemon.move1_id).name);
+                move1_type.setImageResource(db.getAttack(pokemon.move1_id).type_int);
+            }
+            else{
+                move1.setText("                   ");
+                move1_type.setImageResource(R.drawable.nulo);
+            }
+            if(pokemon.move2_id != -1){
+                move2.setText(db.getAttack(pokemon.move2_id).name);
+                move2_type.setImageResource(db.getAttack(pokemon.move2_id).type_int);
+            }
+            else{
+                move2.setText("                   ");
+                move2_type.setImageResource(R.drawable.nulo);
+            }
+            if(pokemon.move3_id != -1){
+                move3.setText(db.getAttack(pokemon.move3_id).name);
+                move3_type.setImageResource(db.getAttack(pokemon.move3_id).type_int);
+            }
+            else{
+                move3.setText("                   ");
+                move3_type.setImageResource(R.drawable.nulo);
+            }
+            if(pokemon.move4_id != -1){
+                move4.setText(db.getAttack(pokemon.move4_id).name);
+                move4_type.setImageResource(db.getAttack(pokemon.move4_id).type_int);
+            }
+            else{
+                move4.setText("                   ");
+                move4_type.setImageResource(R.drawable.nulo);
+            }
+
+
 
 
 
@@ -123,6 +150,8 @@ public class SinglePokemonActivity extends AppCompatActivity implements View.OnC
 
     @Override
     public void onClick(View v) {
+        boolean swapPressed = false;
+        boolean deletePressed = false;
         if(v.getId()==R.id.button_delete_poke){
             AlertDialog.Builder alert = new AlertDialog.Builder(this);
             alert.setTitle("Delete pokemon");
@@ -150,29 +179,70 @@ public class SinglePokemonActivity extends AppCompatActivity implements View.OnC
             alert.show();
         }
         else if(v.getId()==R.id.swap1){
-            Toast.makeText(getApplicationContext(),"SWAP 1 pressed, not implemented yet uwu",Toast.LENGTH_SHORT).show();
+            atk_position = 1;
+            swapPressed = true;
         }
         else if(v.getId()==R.id.delete1){
-            Toast.makeText(getApplicationContext(),"DELETE 1 pressed, not implemented yet uwu",Toast.LENGTH_SHORT).show();
+            deletePressed = true;
+            atk_position = 1;
         }
         else if(v.getId()==R.id.swap2){
-            Toast.makeText(getApplicationContext(),"SWAP 2 pressed, not implemented yet uwu",Toast.LENGTH_SHORT).show();
+            atk_position = 2;
+            swapPressed = true;
         }
         else if(v.getId()==R.id.delete2){
-            Toast.makeText(getApplicationContext(),"DELETE 2 pressed, not implemented yet uwu",Toast.LENGTH_SHORT).show();
+            deletePressed = true;
+            atk_position = 2;
         }
         else if(v.getId()==R.id.swap3){
-            Toast.makeText(getApplicationContext(),"SWAP 3 pressed, not implemented yet uwu",Toast.LENGTH_SHORT).show();
+            atk_position = 3;
+            swapPressed = true;
+
         }
         else if(v.getId()==R.id.delete3){
-            Toast.makeText(getApplicationContext(),"DELETE 3 pressed, not implemented yet uwu",Toast.LENGTH_SHORT).show();
+            deletePressed = true;
+            atk_position = 3;
         }
         else if(v.getId()==R.id.swap4){
-            Toast.makeText(getApplicationContext(),"SWAP 4 pressed, not implemented yet uwu",Toast.LENGTH_SHORT).show();
+            atk_position = 4;
+            swapPressed = true;
         }
         else if(v.getId()==R.id.delete4){
-            Toast.makeText(getApplicationContext(),"DELETE 4 pressed, not implemented yet uwu",Toast.LENGTH_SHORT).show();
+            deletePressed = true;
+            atk_position = 4;
         }
+        if(swapPressed){
+            Intent intent = new Intent(SinglePokemonActivity.this,MoveListActivity.class);
+            intent.putExtra("POKE_ID",poke_id);
+            intent.putExtra("POSITION",atk_position);
+            startActivity(intent);
+            finish();
+        }
+        if(deletePressed){
+            AlertDialog.Builder alert = new AlertDialog.Builder(SinglePokemonActivity.this);
+            alert.setTitle("Delete move?");
+            alert.setMessage("");
+            alert.setPositiveButton("Yes", new DialogInterface.OnClickListener(){
+                public void onClick(DialogInterface dialog, int whichButton) {
+                DBHelper db = new DBHelper(SinglePokemonActivity.this);
+                db.addAttackToPokemon(poke_id,-1,"",atk_position);
+                Intent intent = new Intent(SinglePokemonActivity.this,SinglePokemonActivity.class);
+                intent.putExtra("POKE_ID",poke_id);
+                startActivity(intent);
+                finish();
+
+                }
+            });
+
+            alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int whichButton) {
+
+                }
+            });
+
+            alert.show();
+        }
+
 
     }
 }

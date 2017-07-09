@@ -170,14 +170,14 @@ public class DBHelper extends SQLiteOpenHelper {
             pokemon.team_id = cursor.getInt(7);
             pokemon.image = converter.StringToBitMap(cursor.getString(8));
 
-            /*pokemon.move1 = cursor.getString(9);
+            pokemon.move1 = cursor.getString(9);
             pokemon.move2 = cursor.getString(10);
             pokemon.move3 = cursor.getString(11);
             pokemon.move4 = cursor.getString(12);
             pokemon.move1_id = cursor.getInt(13);
             pokemon.move2_id = cursor.getInt(14);
             pokemon.move3_id = cursor.getInt(15);
-            pokemon.move4_id = cursor.getInt(16);*/
+            pokemon.move4_id = cursor.getInt(16);
         }
 
         return pokemon;
@@ -301,6 +301,13 @@ public class DBHelper extends SQLiteOpenHelper {
                 poke_id +
                 ")");
     }
+    public Attack getAttack(int atk_id){
+        Log.d("ATK RECEIVED",atk_id+"");
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM attack WHERE _id = "+atk_id,null);
+        cursor.moveToFirst();
+        return new Attack(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getInt(4),cursor.getString(5),cursor.getInt(6),cursor.getInt(7));
+    }
     public ArrayList<Attack> getAttacks(int poke_id){
         ArrayList<Attack> attacks = new ArrayList<Attack>();
         SQLiteDatabase db = this.getWritableDatabase();
@@ -308,10 +315,10 @@ public class DBHelper extends SQLiteOpenHelper {
 
         if(cursor.moveToFirst()){
             do{
-                attacks.add(new Attack(cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getInt(4),cursor.getString(5),cursor.getInt(6),cursor.getInt(7)));
+                attacks.add(new Attack(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getInt(4),cursor.getString(5),cursor.getInt(6),cursor.getInt(7)));
             }while (cursor.moveToNext());
         }
-        Log.d("ATTACK AMOUNT",attacks.size()+"");
+
         return attacks;
     }
 
@@ -323,7 +330,12 @@ public class DBHelper extends SQLiteOpenHelper {
     //UPDATES AN ATTACK OF A POKEMON. POSITION INDICATES WHICH MOVE WILL BE ADDED OR REPLACED
     //POSIBLE POSITION VALUES = [1,2,3,4]
     public void addAttackToPokemon(int poke_id, int atk_id, String atk_name, int position){
+        Log.d("CONSULTA","UPDATE pokemon SET move"+position+" = '"+atk_name+"', move"+position+"_id = "+atk_id+" WHERE _id= "+poke_id);
         SQLiteDatabase db = this.getWritableDatabase();
-        db.rawQuery("UPDATE pokemon SET move"+position+" = '"+atk_name+"', move"+position+"_id = "+atk_id+" WHERE id= "+poke_id,null);
+
+        db.execSQL("UPDATE pokemon SET move"+position+" = '"+atk_name+"', move"+position+"_id = "+atk_id+" WHERE _id= "+poke_id);
+        Pokemon pokemon = getPokemon(poke_id);
+
+
     }
 }

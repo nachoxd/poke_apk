@@ -28,7 +28,6 @@ public class TeamAdapter extends ArrayAdapter<Pokemon> {
         this.layoutresourceid = layoutresourceid;
         this.datos = data;
 
-
     }
     public View getView(int position, View convertview, ViewGroup parent){
         View row = convertview;

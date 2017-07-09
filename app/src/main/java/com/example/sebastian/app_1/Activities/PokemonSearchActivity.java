@@ -108,6 +108,7 @@ public class PokemonSearchActivity extends AppCompatActivity {
                 for(Attack atk : AsyncPokemonSearch.attacks){
                     type1 = converter.StringToIntType(PokemonSearchActivity.this,atk.type_string.toLowerCase());
                     if(type1 != 0){
+                        //Log.d("ATK INFO","atk.power: "+atk.power+ " atk.accuracy: "+atk.accuracy);
                         db.addAttack(poke_id,atk.name,atk.description,atk.type_string,type1,atk.category,atk.power,atk.accuracy);
                     }
 
@@ -123,7 +124,6 @@ public class PokemonSearchActivity extends AppCompatActivity {
                 Intent intent = new Intent(PokemonSearchActivity.this,TeamActivity.class);
                 intent.putExtra("TEAM_ID",team_id);
                 startActivityForResult(intent,1);
-                //setResult(1,intent);
                 finish();
             }
         });

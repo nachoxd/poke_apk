@@ -68,10 +68,10 @@ public class TeamActivity extends AppCompatActivity {
         pokemon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TeamActivity.this,PokemonSearchActivity.class);
-                intent.putExtra("TEAM_ID",team_id);
-                startActivity(intent);
-                finish();
+            Intent intent = new Intent(TeamActivity.this,PokemonSearchActivity.class);
+            intent.putExtra("TEAM_ID",team_id);
+            startActivity(intent);
+            finish();
 
             }
         });

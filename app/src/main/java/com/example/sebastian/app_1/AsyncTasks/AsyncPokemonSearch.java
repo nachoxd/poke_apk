@@ -67,47 +67,53 @@ public class AsyncPokemonSearch extends AsyncTask<String, Integer, Bitmap> {
                     current = ite2.next();
                     text = current.text().split(" ");
                     category = current.getElementsByClass("cell-icon").get(1).attr("data-sort-value");
-
                     if(text.length ==6){
                         name = text[1]+ " " + text[2];
                         type = text[3];
-                        try{
-                            power = Integer.getInteger(text[4]);
-                        }catch (Exception e){
+                        if(StringUtil.isNumeric(text[4])){
+                            power = Integer.parseInt(text[4]);
+                        }
+                        else{
                             power = 0;
                         }
-                        try{
-                            accuracy = Integer.getInteger(text[5]);
-                        }catch (Exception e){
+                        if(StringUtil.isNumeric(text[5])){
+                            accuracy = Integer.parseInt(text[5]);
+                        }
+                        else{
                             accuracy = 0;
                         }
                     }
-                    Log.d("","");
                     if(text.length == 5){
                         name = text[0] + " " + text[1];
                         type = text[2];
-                        try{
-                            power = Integer.getInteger(text[3]);
-                        }catch (Exception e2){
+                        if(StringUtil.isNumeric(text[3])){
+                            Log.d("TEXT[3]=",text[3]+"");
+                            power = Integer.parseInt(text[3]);
+                        }
+                        else{
                             power = 0;
                         }
-                        try{
-                            accuracy = Integer.getInteger(text[4]);
-                        }catch (Exception e2){
+                        if(StringUtil.isNumeric(text[4])){
+                            Log.d("TEXT[4]=",text[4]+"");
+                            accuracy = Integer.parseInt(text[4]);
+                        }
+                        else{
                             accuracy = 0;
                         }
                     }
                     if(text.length == 4){
                         name = text[0];
                         type = text[1];
-                        try{
-                            power = Integer.getInteger(text[2]);
-                        }catch (Exception e){
+                        if(StringUtil.isNumeric(text[2])){
+                            power = Integer.parseInt(text[2]);
+                        }
+                        else{
                             power = 0;
                         }
-                        try{
-                            accuracy = Integer.getInteger(text[3]);
-                        }catch (Exception e){
+                        if(StringUtil.isNumeric(text[3])){
+                            accuracy = Integer.parseInt(text[3]);
+                        }
+                        else{
                             accuracy = 0;
                         }
                     }
@@ -118,8 +124,8 @@ public class AsyncPokemonSearch extends AsyncTask<String, Integer, Bitmap> {
                     }
 
                     if(!nameHelper.contains(name)){
-                        new_atk = new Attack(name,"description",type,1,category,power,accuracy);
-                        //Log.d("NEW ATK",new_atk.name+" "+new_atk.description+" "+new_atk.type_string+" "+new_atk.type_int+ " "+new_atk.category+" "+ new_atk.power+ " "+ new_atk.accuracy);
+                        new_atk = new Attack(-1,name,"description",type,1,category,power,accuracy);
+                        Log.d("NEW ATK",new_atk.name+" "+new_atk.description+" "+new_atk.type_string+" "+new_atk.type_int+ " "+new_atk.category+" "+ new_atk.power+ " "+ new_atk.accuracy);
                         attacks.add(new_atk);
                         nameHelper.add(name);
                     }
