@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.sebastian.app_1.R;
 import com.example.sebastian.app_1.Utils.Attack;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
  */
 
 public class SinglePokemonActivity extends AppCompatActivity implements View.OnClickListener{
+    //ELEMENTS OF ACTIVITY
     ImageView icon;
     TextView name;
     ImageView type1;
@@ -36,13 +38,23 @@ public class SinglePokemonActivity extends AppCompatActivity implements View.OnC
     ImageView move3_type;
     TextView move4;
     ImageView move4_type;
+    //BUTTONS & IDS
     Button btn;
+    Button swap1;
+    Button delete1;
+    Button swap2;
+    Button delete2;
+    Button swap3;
+    Button delete3;
+    Button swap4;
+    Button delete4;
     int poke_id;
     int team_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.single_poke_main);
+        //DECLARE ELEMENTS OF SINGLE_POKEMON_ACTIVITY
         icon = (ImageView) findViewById(R.id.elem_icon);
         name = (TextView) findViewById(R.id.elem_tv);
         type1 = (ImageView) findViewById(R.id.type_int_1);
@@ -56,8 +68,25 @@ public class SinglePokemonActivity extends AppCompatActivity implements View.OnC
         move3_type = (ImageView) findViewById(R.id.move3_type);
         move4 = (TextView) findViewById(R.id.move4);
         move4_type = (ImageView) findViewById(R.id.move4_type);
+        //BUTTONS
         btn = (Button) findViewById(R.id.button_delete_poke);
         btn.setOnClickListener(this);
+        swap1 = (Button) findViewById(R.id.swap1);
+        swap1.setOnClickListener(this);
+        delete1 = (Button) findViewById(R.id.delete1);
+        delete1.setOnClickListener(this);
+        swap2 = (Button) findViewById(R.id.swap2);
+        swap2.setOnClickListener(this);
+        delete2 = (Button) findViewById(R.id.delete2);
+        delete2.setOnClickListener(this);
+        swap3 = (Button) findViewById(R.id.swap3);
+        swap3.setOnClickListener(this);
+        delete3 = (Button) findViewById(R.id.delete3);
+        delete3.setOnClickListener(this);
+        swap4 = (Button) findViewById(R.id.swap4);
+        swap4.setOnClickListener(this);
+        delete4 = (Button) findViewById(R.id.delete4);
+        delete4.setOnClickListener(this);
         //FILL SPACES WITH INTENT INFO
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
@@ -69,6 +98,7 @@ public class SinglePokemonActivity extends AppCompatActivity implements View.OnC
             DBHelper db = new DBHelper(this);
             Pokemon pokemon = db.getPokemon(poke_id);
             ArrayList<Attack> attacks = db.getAttacks(poke_id);
+
             //ELEMENTS OF SINGLE POKEMON VIEW
 
             icon.setImageBitmap(pokemon.image);
@@ -119,5 +149,30 @@ public class SinglePokemonActivity extends AppCompatActivity implements View.OnC
 
             alert.show();
         }
+        else if(v.getId()==R.id.swap1){
+            Toast.makeText(getApplicationContext(),"SWAP 1 pressed, not implemented yet uwu",Toast.LENGTH_SHORT).show();
+        }
+        else if(v.getId()==R.id.delete1){
+            Toast.makeText(getApplicationContext(),"DELETE 1 pressed, not implemented yet uwu",Toast.LENGTH_SHORT).show();
+        }
+        else if(v.getId()==R.id.swap2){
+            Toast.makeText(getApplicationContext(),"SWAP 2 pressed, not implemented yet uwu",Toast.LENGTH_SHORT).show();
+        }
+        else if(v.getId()==R.id.delete2){
+            Toast.makeText(getApplicationContext(),"DELETE 2 pressed, not implemented yet uwu",Toast.LENGTH_SHORT).show();
+        }
+        else if(v.getId()==R.id.swap3){
+            Toast.makeText(getApplicationContext(),"SWAP 3 pressed, not implemented yet uwu",Toast.LENGTH_SHORT).show();
+        }
+        else if(v.getId()==R.id.delete3){
+            Toast.makeText(getApplicationContext(),"DELETE 3 pressed, not implemented yet uwu",Toast.LENGTH_SHORT).show();
+        }
+        else if(v.getId()==R.id.swap4){
+            Toast.makeText(getApplicationContext(),"SWAP 4 pressed, not implemented yet uwu",Toast.LENGTH_SHORT).show();
+        }
+        else if(v.getId()==R.id.delete4){
+            Toast.makeText(getApplicationContext(),"DELETE 4 pressed, not implemented yet uwu",Toast.LENGTH_SHORT).show();
+        }
+
     }
 }

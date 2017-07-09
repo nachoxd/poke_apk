@@ -105,175 +105,192 @@
         android:background="#000000"
         android:text="Moves"
         android:textColor="#FFFFFF" />
-
-    <RelativeLayout
-        android:id="@+id/llh3"
+    <LinearLayout
+        android:id="@+id/layout_move1"
         android:layout_width="match_parent"
-        android:layout_height="170dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:background="#000000">
-
+        android:layout_height="60dp"
+        android:orientation="horizontal">
         <TextView
             android:id="@+id/move1"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_toStartOf="@+id/move4_type"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
             android:background="#000000"
-            android:paddingTop="10dp"
             android:text="Splash"
             android:textAlignment="center"
-            android:textColor="#FFFFFF" />
+            android:gravity="center_vertical"
+            android:textColor="#FFFFFF"
+            android:layout_weight="0.16"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
 
         <ImageView
             android:id="@+id/move1_type"
-            android:layout_width="120dp"
-            android:layout_height="40dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="17dp"
-            android:layout_marginRight="17dp"
-            android:layout_toLeftOf="@+id/move1_x"
-            android:layout_toStartOf="@+id/move1_x"
-            android:layout_weight="0.08"
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.01"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             app:srcCompat="@drawable/poison" />
 
-        <ImageView
-            android:id="@+id/move1_x"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_above="@+id/move2_type"
-            android:layout_alignLeft="@+id/move2_x"
-            android:layout_alignStart="@+id/move2_x"
-            android:layout_weight="0.08"
-            app:srcCompat="@drawable/x" />
-
+        <Button
+            android:id="@+id/swap1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/swap"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
+        <Button
+            android:id="@+id/delete1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/x"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout_move2"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
         <TextView
             android:id="@+id/move2"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/move1"
-            android:layout_toLeftOf="@+id/move1_type"
-            android:layout_toStartOf="@+id/move1_type"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
             android:background="#000000"
-            android:paddingTop="10dp"
             android:text="Splash"
             android:textAlignment="center"
-            android:textColor="#FFFFFF" />
+            android:gravity="center_vertical"
+            android:textColor="#FFFFFF"
+            android:layout_weight="0.16"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
 
         <ImageView
             android:id="@+id/move2_type"
-            android:layout_width="120dp"
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.01"
+            app:srcCompat="@drawable/poison"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
+
+        <Button
+            android:id="@+id/swap2"
+            android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_below="@+id/move1"
-            android:layout_toEndOf="@+id/move2"
-            android:layout_toRightOf="@+id/move2"
-            android:layout_weight="0.08"
-            app:srcCompat="@drawable/poison" />
-
-        <ImageView
-            android:id="@+id/move2_x"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_above="@+id/move3_type"
-            android:layout_alignLeft="@+id/move3_x"
-            android:layout_alignStart="@+id/move3_x"
-            android:layout_weight="0.08"
-            app:srcCompat="@drawable/x" />
-
+            android:background="@drawable/swap"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
+        <Button
+            android:id="@+id/delete2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/x"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout_move3"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
         <TextView
             android:id="@+id/move3"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/move2"
-            android:layout_toLeftOf="@+id/move4_type"
-            android:layout_toStartOf="@+id/move4_type"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
             android:background="#000000"
-            android:paddingTop="10dp"
             android:text="Splash"
             android:textAlignment="center"
-            android:textColor="#FFFFFF" />
+            android:gravity="center_vertical"
+            android:textColor="#FFFFFF"
+            android:layout_weight="0.16"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
 
         <ImageView
             android:id="@+id/move3_type"
-            android:layout_width="120dp"
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.01"
+            app:srcCompat="@drawable/poison"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
+
+        <Button
+            android:id="@+id/swap3"
+            android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_below="@+id/move2"
-            android:layout_toEndOf="@+id/move2"
-            android:layout_toRightOf="@+id/move2"
-            android:layout_weight="0.08"
-            app:srcCompat="@drawable/poison" />
+            android:background="@drawable/swap"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
+        <Button
+            android:id="@+id/delete3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/x"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
 
-        <ImageView
-            android:id="@+id/move3_x"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_above="@+id/move4_type"
-            android:layout_alignLeft="@+id/move4_x"
-            android:layout_alignStart="@+id/move4_x"
-            android:layout_weight="0.08"
-            app:srcCompat="@drawable/x" />
 
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout_move4"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
         <TextView
             android:id="@+id/move4"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/move3"
-            android:layout_toLeftOf="@+id/move4_type"
-            android:layout_toStartOf="@+id/move4_type"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
             android:background="#000000"
-            android:paddingTop="10dp"
             android:text="Splash"
             android:textAlignment="center"
-            android:textColor="#FFFFFF" />
+            android:gravity="center_vertical"
+            android:textColor="#FFFFFF"
+            android:layout_weight="0.16"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
 
         <ImageView
             android:id="@+id/move4_type"
-            android:layout_width="120dp"
-            android:layout_height="40dp"
-            android:layout_alignLeft="@+id/move3_type"
-            android:layout_alignStart="@+id/move3_type"
-            android:layout_below="@+id/move3"
-            android:layout_weight="0.08"
-            app:srcCompat="@drawable/poison" />
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.01"
+            app:srcCompat="@drawable/poison"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
 
-        <ImageView
-            android:id="@+id/move4_x"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_alignBottom="@+id/move4_type"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginEnd="21dp"
-            android:layout_marginRight="21dp"
-            android:layout_weight="0.08"
-            app:srcCompat="@drawable/x" />
-    </RelativeLayout>
+        <Button
+            android:id="@+id/swap4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/swap"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
+        <Button
+            android:id="@+id/delete4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/x"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
+
+    </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp">
+        android:layout_height="170dp">
 
         <Button
             android:id="@+id/button_delete_poke"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@drawable/trash"
-            android:layout_marginRight="22dp"
-            android:layout_marginEnd="22dp"
-            android:layout_alignParentBottom="true"
+            android:layout_marginRight="13dp"
+            android:layout_marginEnd="13dp"
+            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginBottom="89dp" />
-
-
+            android:layout_alignParentEnd="true" />
     </RelativeLayout>
+
 </LinearLayout>
