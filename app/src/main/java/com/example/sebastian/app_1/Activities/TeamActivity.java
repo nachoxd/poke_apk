@@ -1,13 +1,17 @@
 package com.example.sebastian.app_1.Activities;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.sebastian.app_1.Adapters.TeamAdapter;
 import com.example.sebastian.app_1.R;
@@ -64,6 +68,7 @@ public class TeamActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        //IF ADD POKE BUTTON IS SELECTED
         Button pokemon = (Button) findViewById(R.id.button_add_poke);
         pokemon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +78,34 @@ public class TeamActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
 
+            }
+        });
+        //IF DELETE TEAM BUTTON IS SELECTED
+        Button deleter = (Button) findViewById(R.id.button_delete_poke);
+        deleter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder alert = new AlertDialog.Builder(TeamActivity.this);
+                alert.setTitle("Delete team");
+                alert.setMessage("Are you sure you want you delete this team? This change cannot be undone");
+                //POSITIVE ANSWER
+                alert.setPositiveButton("Delete", new DialogInterface.OnClickListener(){
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        db.deleteTeam(team_id);
+                        Intent intent = new Intent(TeamActivity.this,TeamListActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+                //NEGATIVE ANSWER
+                alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        //CANCELLED, DO NOTHING
+                    }
+                });
+
+                alert.show();
+                Intent intent = new Intent(TeamActivity.this,PokemonSearchActivity.class);
             }
         });
 

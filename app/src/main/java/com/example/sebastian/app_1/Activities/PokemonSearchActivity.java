@@ -107,7 +107,7 @@ public class PokemonSearchActivity extends AppCompatActivity {
 
                 for(Attack atk : AsyncPokemonSearch.attacks){
                     type1 = converter.StringToIntType(PokemonSearchActivity.this,atk.type_string.toLowerCase());
-                    if(type1 != 0){
+                    if(type1 != 0 && type1 != 1){
                         //Log.d("ATK INFO","atk.power: "+atk.power+ " atk.accuracy: "+atk.accuracy);
                         db.addAttack(poke_id,atk.name,atk.description,atk.type_string,type1,atk.category,atk.power,atk.accuracy);
                     }

@@ -98,6 +98,9 @@ public class SinglePokemonActivity extends AppCompatActivity implements View.OnC
             DBHelper db = new DBHelper(this);
             Pokemon pokemon = db.getPokemon(poke_id);
             ArrayList<Attack> attacks = db.getAttacks(poke_id);
+            for(Attack atk: attacks){
+                Log.d("ATK_TYPE_INT",atk.type_int+"");
+            }
 
             //ELEMENTS OF SINGLE POKEMON VIEW
 
