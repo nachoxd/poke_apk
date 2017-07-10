@@ -37,7 +37,7 @@ public class MoveListAdapter extends ArrayAdapter<Attack> {
 
         ImageView type = (ImageView) rowView.findViewById(R.id.move_type);
         ImageView category = (ImageView) rowView.findViewById(R.id.move_category);
-
+        //
         type.setImageResource(attacks.get(position).type_int);
         if(attacks.get(position).category.equals("physical")){
             category.setImageResource(R.drawable.physical);
